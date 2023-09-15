@@ -10,7 +10,7 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
-.calendar, .numbers{
+.clock, .numbers{
     font-size: 180px;
     padding: 20px;
 }

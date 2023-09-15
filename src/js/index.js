@@ -7,45 +7,47 @@ import "../styles/index.css";
 import PropTypes from "prop-types";
 
 //import your own components
-var SimpleCounter = (props) =>{
+var SimpleTimer = (props) =>{
     return(
-        <div className ="display-flex d-flex bg-dark text-white py-3 justify-content-center">
-            <div className = "calendar">
+        <div className ="d-flex bg-dark text-white py-3 justify-content-center">
+            <div className = "clock">
              <i className ="far fa-clock"></i>
             </div>
-            <div className="six numbers">{props.digitSix % 10}</div>
-            <div className="five numbers">{props.digitFive % 10}</div>
-            <div className="four numbers">{props.digitFour % 10}</div>
-            <div className="three numbers">{props.digitThree % 10}</div>
-            <div className="two numbers">{props.digitTwo % 10}</div>
-            <div className="one numbers">{props.digitOne % 10}</div>
+            <div className="numbers">{props.placeSix % 10}</div>
+            <div className="numbers">{props.placeFive % 10}</div>
+            <div className="numbers">{props.placeFour % 10}</div>
+            <div className="numbers">{props.placeThree % 10}</div>
+            <div className="numbers">{props.placeTwo % 10}</div>
+            <div className="numbers">{props.placeOne % 10}</div>
         </div>
         
     )
       
 }
 
-SimpleCounter.propTypes = {
-    digitSix: PropTypes.number,
-    digitFive: PropTypes.number,
-    digitFour: PropTypes.number,
-    digitThree: PropTypes.number,
-    digitTwo: PropTypes.number,
-    digitOne: PropTypes.number,
+
+
+SimpleTimer.propTypes = {
+    placeSix: PropTypes.number,
+    placeFive: PropTypes.number,
+    placeFour: PropTypes.number,
+    placeThree: PropTypes.number,
+    placeTwo: PropTypes.number,
+    placeOne: PropTypes.number,
 }
 
-let counter = 0;
+let timer = 0;
 setInterval(function(){
-    const six = Math.floor(counter/100000);
-    const five = Math.floor(counter/10000);
-    const four = Math.floor(counter/1000);
-    const three = Math.floor(counter/100);
-    const two = Math.floor(counter/10);
-    const one = Math.floor(counter/1);
-    counter++;
+    const six = Math.floor(timer/100000);
+    const five = Math.floor(timer/10000);
+    const four = Math.floor(timer/1000);
+    const three = Math.floor(timer/100);
+    const two = Math.floor(timer/10);
+    const one = Math.floor(timer/1);
+    timer++;
 
 
 //render your react application
-ReactDOM.render(<SimpleCounter digitOne={one} digitTwo={two} digitThree={three} digitFour={four} digitFive={five} digitSix={six} />, document.querySelector("#app")
+ReactDOM.render(<SimpleTimer placeOne={one} placeTwo={two} placeThree={three} placeFour={four} placeFive={five} placeSix={six} />, document.querySelector("#app")
 );
 },1000);
